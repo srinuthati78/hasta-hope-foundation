@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crochet For Hope</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lavender:#F7EFF6;
+    --deep:#5A3568;
+    --medium:#8A5CC4;
+    --footer:#5C3D71;
+    --ink:#5B2D82;
+    --body:#6C4B7E;
+    --cream:#F7EFF6;
+    --teal:#357073;
+    --pill:#8B5EC0;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins',sans-serif;color:var(--body);background:var(--lavender);line-height:1.6;}
+  h1,h2,h3{font-family:'Baloo 2',sans-serif;color:var(--ink);line-height:1.1;}
+  a{color:inherit;text-decoration:none;}
+  img,.img-block{display:block;width:100%;border-radius:20px;object-fit:cover;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  section{padding:80px 0;}
+  .light{background:var(--lavender);}
+  .dark{background:var(--deep);color:var(--cream);}
+  .dark h2,.dark h3{color:var(--cream);}
+  .dark p, .dark .body{color:#E7D9EE;}
+  .medium{background:var(--medium);color:var(--cream);}
+  .medium h2{color:#3E1E5C;}
+  .footer-bg{background:var(--footer);color:var(--cream);}
+
+  /* header */
+  header{background:var(--lavender);padding:20px 0;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(90,53,104,.08);}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:'Baloo 2';font-weight:800;font-size:1.3rem;color:var(--ink);}
+  .parent-link{font-size:.8rem;color:var(--body);display:block;margin-top:2px;}
+  nav a{margin-left:28px;font-weight:600;font-size:.95rem;color:var(--ink);}
+
+  /* hero */
+  .hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;}
+  .eyebrow{font-family:'Baloo 2';font-weight:700;color:var(--ink);margin-bottom:14px;font-size:1.05rem;}
+  .hero h1{font-size:3rem;margin-bottom:20px;}
+  .hero p{font-size:1.05rem;max-width:480px;margin-bottom:28px;}
+  .learn-more{font-family:'Baloo 2';font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:10px;}
+  .img-hero{aspect-ratio:1/1;background:linear-gradient(135deg,#d9c3e6,#b98fce);}
+
+  /* split section */
+  .split .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch;}
+  .split.reverse .wrap{direction:rtl;}
+  .split.reverse .wrap>*{direction:ltr;}
+  .img-tall{aspect-ratio:4/3;background:linear-gradient(135deg,#c9a7db,#7c4fa8);}
+  .box{border:1.5px solid var(--teal);border-radius:16px;padding:40px;display:flex;flex-direction:column;justify-content:center;}
+  .box h2{font-size:1.6rem;margin-bottom:18px;}
+  .box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px;}
+  .box p{margin-bottom:14px;font-size:.98rem;}
+  .box p:last-child{margin-bottom:0;}
+  .dark .box{border-color:#7fb8ba;}
+
+  /* initiatives cards */
+  .section-title{font-size:2.4rem;text-align:center;margin-bottom:48px;letter-spacing:.5px;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{background:var(--cream);border-radius:16px;padding:36px 28px;text-align:center;color:var(--body);}
+  .card h3{color:var(--ink);font-size:1.2rem;margin-bottom:16px;}
+  .card p{font-size:.92rem;margin-bottom:24px;}
+  .arrow-pill{width:44px;height:44px;border-radius:50%;background:var(--pill);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;}
+
+  /* help list */
+  .help .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .img-full{aspect-ratio:3/4;background:linear-gradient(135deg,#3d2350,#6b3f8f);border-radius:0;}
+  .help h2{font-size:2.2rem;margin-bottom:32px;}
+  .help-list{display:flex;flex-direction:column;gap:14px;}
+  .help-item{background:var(--cream);color:var(--ink);border-radius:14px;padding:18px 24px;}
+  .help-item strong{display:block;font-size:1.05rem;font-family:'Baloo 2';}
+  .help-item span{font-size:.9rem;color:var(--body);}
+
+  /* movement closer */
+  .movement .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .movement h2{font-size:2.6rem;margin-bottom:20px;}
+  .movement .cta-tag{font-weight:700;color:var(--ink);margin-top:24px;}
+
+  /* footer */
+  .footer-bg .wrap{padding:70px 32px;}
+  .footer-bg .logo{color:var(--cream);opacity:.9;margin-bottom:24px;}
+  .footer-bg h2{font-size:2.8rem;color:var(--cream);max-width:700px;margin-bottom:56px;}
+  .footer-bg h3{font-size:1rem;letter-spacing:1px;color:var(--cream);margin-bottom:14px;}
+  .footer-bg p{color:#E7D9EE;font-size:.95rem;}
+
+  @media(max-width:860px){
+    .hero .wrap,.split .wrap,.help .wrap,.movement .wrap,.split.reverse .wrap{grid-template-columns:1fr;direction:ltr;}
+    .cards{grid-template-columns:1fr;}
+    .hero h1{font-size:2.2rem;}
+    section{padding:56px 0;}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div>
+      <div class="logo">Crochet For Hope</div>
+      <a class="parent-link" href="index.html">&larr; Hasta Hope Foundation</a>
+    </div>
+    <nav>
+      <a href="#mission">Mission</a>
+      <a href="#initiatives">Initiatives</a>
+      <a href="#help">Get Involved</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Crochet For Hope</div>
+      <h1>Welcome to Crochet For Hope: Every Stitch, A Touched Life</h1>
+      <p>At Crochet For Hope, we teach youth the art of crochet, fostering creativity while positively impacting our community through various initiatives.</p>
+      <a class="learn-more" href="#mission">LEARN MORE &rarr;</a>
+    </div>
+    <div class="img-hero img-block"></div>
+  </div>
+</section>
+
+<section class="dark split" id="mission">
+  <div class="wrap">
+    <div class="img-tall img-block"></div>
+    <div class="box">
+      <h2>Our Mission</h2>
+      <h3>Inspiring youth through the art of crochet</h3>
+      <p><strong>Creating community through creativity.</strong> At Crochet For Hope, we believe in the power of creativity to bring about meaningful change. Our mission is to teach youth the art of crochet while fostering a sense of community and service. Through workshops, participants learn valuable skills while contributing to impactful initiatives that support food security and healthcare.</p>
+      <p>Each stitch we make is a step towards a brighter future. We focus on building leadership skills and encouraging collaboration, ensuring every participant leaves with both knowledge and a sense of purpose.</p>
+    </div>
+  </div>
+</section>
+
+<section class="light split reverse">
+  <div class="wrap">
+    <div class="box">
+      <h2>The Heart of Our Journey</h2>
+      <h3>From Family Lessons to Community Impact</h3>
+      <p>Crochet For Hope was born from cherished family moments spent learning the art of crochet. Sisters Sejal and Novika Thatipamula learned these skills during the summer of 2024, inspired by their grandmother's teachings. This passion has since blossomed into a community-driven initiative.</p>
+      <p>Today, we empower youth to stitch together not only beautiful creations but also impactful lives. Each program we offer fosters skills that extend beyond crochet, instilling values of service, compassion, and leadership in our community.</p>
+    </div>
+    <div class="img-tall img-block"></div>
+  </div>
+</section>
+
+<section class="dark split">
+  <div class="wrap">
+    <div class="img-tall img-block"></div>
+    <div class="box">
+      <h2>Celebrating our collective impact through crochet initiatives</h2>
+      <h3>Our impact speaks volumes about our mission</h3>
+      <p>At Crochet For Hope, we celebrate our achievements as a testament to the power of community. From raising over <strong>$3,480</strong> to supporting <strong>1,704 meals</strong>, every stitch contributes to meaningful change. Our initiatives have not only provided <strong>60 blankets</strong> for wildfire relief but have also engaged <strong>36+ youth participants</strong> across five school districts, fostering leadership and compassion.</p>
+      <p>Our journey began with a simple vision, and we are proud to see it flourish. Together, we are making a difference, one stitch at a time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="initiatives">
+  <div class="wrap">
+    <h2 class="section-title">OUR INITIATIVES</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Community Service and Food Security</h3>
+        <p>We actively support local communities by providing food security initiatives, ensuring families have access to nutritious meals through our workshops and fundraising efforts, making a tangible difference in their lives.</p>
+        <span class="arrow-pill">&rarr;</span>
+      </div>
+      <div class="card">
+        <h3>Healthcare Support for Families</h3>
+        <p>Crochet For Hope contributes to healthcare support by donating funds to local hospitals, ensuring children receive necessary medical care and resources, while promoting the importance of health and wellness within our community.</p>
+        <span class="arrow-pill">&rarr;</span>
+      </div>
+      <div class="card">
+        <h3>Disaster Relief Efforts</h3>
+        <p>In times of crisis, we mobilize our community to provide essential supplies and support. Through crochet projects, we create blankets and resources for those affected by natural disasters, fostering hope and resilience.</p>
+        <span class="arrow-pill">&rarr;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light split" id="help">
+  <div class="wrap">
+    <div class="box">
+      <h2>Join Us in Making a Difference Together</h2>
+      <h3>Participate and Support Our Mission</h3>
+      <p>At Crochet For Hope, we invite you to be part of transformative workshops that empower youth while fostering community connections. Your participation not only teaches invaluable skills but also contributes to meaningful initiatives that help those in need.</p>
+      <p>By joining our workshops, you can connect with others who share your passion for crochet and community service. Every stitch we create together translates into real-world impact, supporting food security, healthcare, and relief efforts.</p>
+    </div>
+    <div class="img-tall img-block"></div>
+  </div>
+</section>
+
+<section class="light split reverse">
+  <div class="wrap">
+    <div class="img-tall img-block"></div>
+    <div class="box">
+      <h2>Opportunities for everyone to make a difference</h2>
+      <h3>Join our community and start making an impact</h3>
+      <p>At Crochet For Hope, we believe that every contribution matters. Whether you're passionate about crocheting or just want to support our mission, there are many ways to get involved. From participating in our workshops to donating supplies or funds, your efforts can help us continue making a positive impact in our community.</p>
+      <p>Join us in spreading warmth and hope through the art of crochet.</p>
+    </div>
+  </div>
+</section>
+
+<section class="medium help">
+  <div class="wrap">
+    <div class="img-full img-block"></div>
+    <div>
+      <h2>How You Can Help</h2>
+      <div class="help-list">
+        <div class="help-item"><strong>Join a Workshop</strong><span>Sign Up Now</span></div>
+        <div class="help-item"><strong>Make a Donation</strong><span>Support Our Cause</span></div>
+        <div class="help-item"><strong>Shop Handmade Creations</strong><span>Browse Our Store</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light movement">
+  <div class="wrap">
+    <div>
+      <h2>The Heart of Crochet For Hope</h2>
+      <p>At Crochet For Hope, our journey is shaped by community and compassion. From the very first stitches to the impactful projects we undertake, every moment fosters <strong>connections and growth</strong>. Our youth are not just learning crochet; they are becoming leaders in service, cultivating kindness through their contributions to food security, healthcare support, and more.</p>
+      <div class="cta-tag">Join the movement!</div>
+    </div>
+    <div class="img-tall img-block"></div>
+  </div>
+</section>
+
+<footer class="footer-bg" id="contact">
+  <div class="wrap">
+    <div class="logo">Crochet For Hope</div>
+    <h2>Together, we can make a difference!</h2>
+    <h3>GET IN TOUCH WITH US</h3>
+    <p>Phone: [Your phone number]<br>
+    Email: [Your email address]<br>
+    Social Media: [Your handle]</p>
+  </div>
+</footer>
+
+</body>
+</html>
