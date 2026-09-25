@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events | Crochet For Hope</title>
+<link rel="icon" type="image/png" href="images/favicon-crochet.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lavender:#F7EFF6;
+    --deep:#5A3568;
+    --medium:#8A5CC4;
+    --footer:#5C3D71;
+    --ink:#5B2D82;
+    --body:#6C4B7E;
+    --cream:#F7EFF6;
+    --teal:#357073;
+    --pill:#8B5EC0;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins',sans-serif;color:var(--body);background:var(--lavender);line-height:1.6;}
+  h1,h2,h3{font-family:'Baloo 2',sans-serif;color:var(--ink);line-height:1.1;}
+  a{color:inherit;text-decoration:none;}
+  img,.img-block{display:block;width:100%;border-radius:20px;object-fit:cover;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  section{padding:80px 0;}
+  .light{background:var(--lavender);}
+  .dark{background:var(--deep);color:var(--cream);}
+  .dark h2,.dark h3{color:var(--cream);}
+  .dark p, .dark .body{color:#E7D9EE;}
+  .medium{background:var(--medium);color:var(--cream);}
+  .medium h2{color:#3E1E5C;}
+  .footer-bg{background:var(--footer);color:var(--cream);}
+
+  /* header */
+  header{background:var(--lavender);padding:20px 0;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(90,53,104,.08);}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:'Baloo 2';font-weight:800;font-size:1.3rem;color:var(--ink);display:flex;align-items:center;gap:10px;}
+  .logo img{height:42px;width:auto;display:block;border-radius:50%;}
+  .parent-link{font-size:.8rem;color:var(--body);display:flex;align-items:center;gap:6px;margin-top:4px;}
+  .parent-link img{height:20px;width:auto;}
+  nav a{margin-left:28px;font-weight:600;font-size:.95rem;color:var(--ink);}
+
+  /* hero */
+  .hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;}
+  .eyebrow{font-family:'Baloo 2';font-weight:700;color:var(--ink);margin-bottom:14px;font-size:1.05rem;}
+  .hero h1{font-size:3rem;margin-bottom:20px;}
+  .hero p{font-size:1.05rem;max-width:480px;margin-bottom:28px;}
+  .learn-more{font-family:'Baloo 2';font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:10px;}
+  .img-hero{aspect-ratio:1/1;background:linear-gradient(135deg,#d9c3e6,#b98fce);}
+
+  /* split section */
+  .split .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch;}
+  .split.reverse .wrap{direction:rtl;}
+  .split.reverse .wrap>*{direction:ltr;}
+  .img-tall{aspect-ratio:4/3;background:linear-gradient(135deg,#c9a7db,#7c4fa8);}
+  .box{border:1.5px solid var(--teal);border-radius:16px;padding:40px;display:flex;flex-direction:column;justify-content:center;}
+  .box h2{font-size:1.6rem;margin-bottom:18px;}
+  .box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px;}
+  .box p{margin-bottom:14px;font-size:.98rem;}
+  .box p:last-child{margin-bottom:0;}
+  .dark .box{border-color:#7fb8ba;}
+
+  /* initiatives cards */
+  .section-title{font-size:2.4rem;text-align:center;margin-bottom:48px;letter-spacing:.5px;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{background:var(--cream);border-radius:16px;padding:36px 28px;text-align:center;color:var(--body);}
+  .card h3{color:var(--ink);font-size:1.2rem;margin-bottom:16px;}
+  .card p{font-size:.92rem;margin-bottom:24px;color:var(--body) !important;}
+  .arrow-pill{width:44px;height:44px;border-radius:50%;background:var(--pill);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;}
+
+  /* help list */
+  .help .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .img-full{aspect-ratio:3/4;background:linear-gradient(135deg,#3d2350,#6b3f8f);border-radius:0;}
+  .help h2{font-size:2.2rem;margin-bottom:32px;}
+  .help-list{display:flex;flex-direction:column;gap:14px;}
+  .help-item{background:var(--cream);color:var(--ink);border-radius:14px;padding:18px 24px;}
+  .help-item strong{display:block;font-size:1.05rem;font-family:'Baloo 2';}
+  .help-item span{font-size:.9rem;color:var(--body);}
+
+  /* movement closer */
+  .movement .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .movement h2{font-size:2.6rem;margin-bottom:20px;}
+  .movement .cta-tag{font-weight:700;color:var(--ink);margin-top:24px;}
+
+  /* footer */
+  .footer-bg .wrap{padding:70px 32px;}
+  .footer-bg .logo{color:var(--cream);opacity:.9;margin-bottom:24px;}
+  .footer-bg h2{font-size:2.8rem;color:var(--cream);max-width:700px;margin-bottom:56px;}
+  .footer-bg h3{font-size:1rem;letter-spacing:1px;color:var(--cream);margin-bottom:14px;}
+  .footer-bg p{color:#E7D9EE;font-size:.95rem;}
+
+  @media(max-width:860px){
+    .hero .wrap,.split .wrap,.help .wrap,.movement .wrap,.split.reverse .wrap{grid-template-columns:1fr;direction:ltr;}
+    .cards{grid-template-columns:1fr;}
+    .hero h1{font-size:2.2rem;}
+    section{padding:56px 0;}
+    nav{display:none;}
+  }
+
+  /* shared nav additions */
+  nav{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:flex-end;}
+  nav a{margin-left:0;padding-bottom:2px;border-bottom:2px solid transparent;}
+  nav a:hover{border-bottom-color:var(--pill);}
+  nav a.active{border-bottom-color:var(--ink);}
+
+  /* sub-page header */
+  .page-head{padding:64px 0 24px;}
+  .page-head h1{font-size:2.8rem;margin-bottom:14px;}
+  .page-head p{max-width:620px;font-size:1.05rem;}
+
+  /* gallery */
+  .gallery-block{padding:32px 0 64px;}
+  .gallery-block h2{font-size:1.8rem;margin-bottom:8px;}
+  .gallery-block .sub{margin-bottom:28px;max-width:600px;}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .gallery button{all:unset;cursor:zoom-in;display:block;border-radius:16px;overflow:hidden;aspect-ratio:1;background:#eadcf0;}
+  .gallery button:focus-visible{outline:3px solid var(--pill);outline-offset:3px;}
+  .gallery img{width:100%;height:100%;object-fit:cover;border-radius:0;transition:transform .3s ease;}
+  .gallery button:hover img{transform:scale(1.04);}
+  .gallery.products img{object-fit:contain;background:#fff;}
+
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;background:rgba(40,20,55,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;}
+  .lightbox.open{display:flex;}
+  .lightbox figure{max-width:1000px;width:100%;text-align:center;}
+  .lightbox img{max-height:80vh;width:auto;max-width:100%;margin:0 auto;border-radius:12px;}
+  .lightbox figcaption{color:#F3E8F7;margin-top:14px;font-size:.95rem;}
+  .lb-btn{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:50%;width:48px;height:48px;font-size:1.4rem;cursor:pointer;}
+  .lb-btn:hover{background:rgba(255,255,255,.28);}
+  .lb-close{top:20px;right:20px;}
+  .lb-prev{left:20px;top:50%;transform:translateY(-50%);}
+  .lb-next{right:20px;top:50%;transform:translateY(-50%);}
+
+  /* events */
+  .events-block{padding:24px 0 72px;}
+  .events-block h2{font-size:1.8rem;margin-bottom:20px;}
+  .empty-state{background:#fff;border:1.5px dashed var(--pill);border-radius:16px;padding:32px;max-width:760px;}
+  .empty-state h3{font-size:1.3rem;margin-bottom:8px;}
+  .empty-state p{margin-bottom:18px;}
+  .btn-row{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{display:inline-block;background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.92rem;}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+  .event-list{display:grid;gap:18px;max-width:900px;}
+  .event{display:grid;grid-template-columns:200px 1fr;background:#fff;border-radius:16px;overflow:hidden;}
+  .event img{height:100%;min-height:160px;border-radius:0;}
+  .event-body{padding:24px 28px;}
+  .event-tag{display:inline-block;font-size:.78rem;font-weight:600;color:var(--ink);background:#EFE3F5;border-radius:999px;padding:4px 12px;margin-bottom:10px;}
+  .event-body h3{font-size:1.25rem;margin-bottom:8px;}
+  .event-body p{font-size:.95rem;}
+
+  @media(max-width:860px){
+    header .wrap{flex-direction:column;align-items:flex-start;gap:14px;}
+    nav{display:flex !important;justify-content:flex-start;gap:6px 18px;}
+    nav a{font-size:.88rem;}
+    .gallery{grid-template-columns:repeat(2,1fr);}
+    .event{grid-template-columns:1fr;}
+    .event img{height:200px;}
+    .page-head h1{font-size:2.1rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="crochet-for-hope.html"><img src="images/crochet-logo.png" alt="Crochet For Hope logo"> Crochet For Hope</a>
+      <a class="parent-link" href="index.html"><img src="images/logo.png" alt="Hasta Hope Foundation logo"> &larr; Hasta Hope Foundation</a>
+    </div>
+    <nav>
+      <a href="crochet-for-hope.html#mission">About</a>
+      <a href="crochet-for-hope.html#initiatives">Initiatives</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="events.html" class="active" aria-current="page">Events</a>
+      <a href="crochet-for-hope.html#help">Get Involved</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <h1>Events</h1>
+    <p>Workshops, fundraisers, and community drives. Join us to learn crochet, meet other makers, and help people in need.</p>
+  </div>
+</section>
+
+<section class="events-block">
+  <div class="wrap">
+    <h2>Upcoming events</h2>
+
+    <!--
+      TO ADD AN UPCOMING EVENT: delete the "empty-state" box below and copy this block into place.
+
+      <div class="event-list">
+        <article class="event">
+          <img src="images/join-us.jpg" alt="">
+          <div class="event-body">
+            <span class="event-tag">Saturday, October 18 &middot; 1:00&ndash;3:00 PM</span>
+            <h3>Beginner Crochet Workshop</h3>
+            <p>Location. Short description. How to sign up.</p>
+          </div>
+        </article>
+      </div>
+    -->
+
+    <div class="empty-state">
+      <h3>New dates coming soon</h3>
+      <p>We announce workshops and fundraisers on Instagram first. Follow along, or email us to host a workshop at your school or community group.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://www.instagram.com/crochet.for.hope/" target="_blank" rel="noopener">Follow @crochet.for.hope</a>
+        <a class="btn ghost" href="mailto:crochetforhope4u@gmail.com?subject=Crochet%20For%20Hope%20workshop">Email us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="events-block">
+  <div class="wrap">
+    <h2>What we've done so far</h2>
+    <div class="event-list">
+      <article class="event">
+        <img src="images/opportunities.jpg" alt="Kids at a crochet workshop">
+        <div class="event-body">
+          <span class="event-tag">Youth workshops</span>
+          <h3>Crochet workshops across five school districts</h3>
+          <p>More than 36 young participants have learned to crochet with us, building skills, confidence, and leadership along the way.</p>
+        </div>
+      </article>
+      <article class="event">
+        <img src="images/impact.jpg" alt="Volunteer and child working with yarn">
+        <div class="event-body">
+          <span class="event-tag">Disaster relief</span>
+          <h3>60 blankets for wildfire relief</h3>
+          <p>Our community stitched and donated 60 blankets to families affected by wildfires.</p>
+        </div>
+      </article>
+      <article class="event">
+        <img src="images/product-flowers.jpg" alt="Crochet flower pins packaged for sale">
+        <div class="event-body">
+          <span class="event-tag">Fundraising</span>
+          <h3>$3,480 raised through handmade sales</h3>
+          <p>Proceeds from our handmade creations have supported 1,704 meals and healthcare support for families.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer-bg" id="contact">
+  <div class="wrap">
+    <div class="logo"><img src="images/crochet-logo.png" alt="Crochet For Hope logo"> Crochet For Hope</div>
+    <h2>Together, we can make a difference!</h2>
+    <h3>GET IN TOUCH WITH US</h3>
+    <p>Email: <a href="mailto:crochetforhope4u@gmail.com">crochetforhope4u@gmail.com</a><br>
+    Instagram: <a href="https://www.instagram.com/crochet.for.hope/" target="_blank" rel="noopener">@crochet.for.hope</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
