@@ -103,7 +103,7 @@
   }
 
   /* shared nav additions */
-  nav{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:flex-end;}
+  nav{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:flex-end;align-items:center;}
   nav a{margin-left:0;padding-bottom:2px;border-bottom:2px solid transparent;}
   nav a:hover{border-bottom-color:var(--pill);}
   nav a.active{border-bottom-color:var(--ink);}
@@ -162,6 +162,8 @@
     .event img{height:200px;}
     .page-head h1{font-size:2.1rem;}
   }
+  nav a.donate-link{background:var(--ink);color:#fff;padding:4px 14px;border-radius:999px;border-bottom:0;}
+  nav a.donate-link:hover{background:var(--pill);}
 </style>
 </head>
 <body>
@@ -179,6 +181,7 @@
       <a href="events.html" class="active" aria-current="page">Events</a>
       <a href="crochet-for-hope.html#help">Get Involved</a>
       <a href="#contact">Contact</a>
+      <a href="donate.html" class="donate-link">Donate</a>
     </nav>
   </div>
 </header>

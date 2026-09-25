@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hasta Hope Foundation</title>
+<title>Donate | Hasta Hope Foundation</title>
 <link rel="icon" type="image/png" href="images/favicon-hasta.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,102 +89,100 @@
     nav a:not(.cta){display:none;}
     footer .wrap{flex-direction:column;}
   }
+
+  nav a.active:not(.cta){border-bottom:2px solid var(--ink);}
+  .donate-hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .donate-hero .kicker{font-size:.95rem;color:var(--madder);font-weight:600;margin-bottom:18px;}
+  .donate-hero h1{font-size:3rem;margin-bottom:20px;max-width:600px;}
+  .donate-hero p{font-size:1.06rem;max-width:500px;color:#4A4237;}
+  .tag-card{background:var(--paper);border:2px solid var(--indigo);border-radius:6px;padding:36px;}
+  .tag-label{font-size:.9rem;font-weight:600;color:var(--sage);margin-bottom:10px;}
+  .zelle-tag{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;color:var(--indigo);word-break:break-all;margin-bottom:20px;}
+  .copy-btn{font:inherit;font-weight:600;font-size:.95rem;background:var(--indigo);color:var(--paper);border:0;border-radius:2px;padding:12px 24px;cursor:pointer;}
+  .copy-btn:hover{background:#243349;}
+  .copy-btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+  .copy-status{display:inline-block;margin-left:12px;font-size:.9rem;color:var(--sage);font-weight:600;}
+  .tag-note{margin-top:22px;font-size:.9rem;color:#6b6154;}
+  .how{background:var(--paper);}
+  .how h2{font-size:2rem;margin-bottom:36px;}
+  .give-steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s;}
+  .give-steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:18px;}
+  .give-steps li::before{content:counter(s);display:block;font-family:'Fraunces';font-size:1.6rem;color:var(--gold);font-weight:600;margin-bottom:8px;}
+  .give-steps h3{font-size:1.15rem;margin-bottom:8px;}
+  .give-steps p{font-size:.95rem;color:#4A4237;}
+  .give-steps code{font-family:inherit;font-weight:700;color:var(--indigo);}
+  .fine{padding:64px 0 88px;}
+  .fine .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+  .fine h3{font-size:1.15rem;margin-bottom:8px;}
+  .fine p{font-size:.95rem;color:#4A4237;}
+  .fine a{color:var(--indigo);font-weight:600;text-decoration:underline;}
+  @media(max-width:860px){
+    .donate-hero .wrap,.give-steps,.fine .wrap{grid-template-columns:1fr;}
+    .donate-hero h1{font-size:2.2rem;}
+    .zelle-tag{font-size:1.5rem;}
+  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <div class="logo"><img src="images/logo.png" alt="Hasta Hope Foundation logo"> Hasta Hope Foundation</div>
+    <a class="logo" href="index.html"><img src="images/logo.png" alt="Hasta Hope Foundation logo"> Hasta Hope Foundation</a>
     <nav>
-      <a href="#initiatives">Initiatives</a>
-      <a href="#how">How It Works</a>
-      <a class="cta" href="donate.html">Donate</a>
+      <a href="index.html#initiatives">Initiatives</a>
+      <a href="index.html#how">How It Works</a>
+      <a class="cta active" href="donate.html" aria-current="page">Donate</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<main>
+<section class="donate-hero">
   <div class="wrap">
     <div>
-      <div class="kicker">A NONPROFIT ROOTED IN HANDCRAFT</div>
-      <h1>We teach handcraft, and turn every piece made into help given.</h1>
-      <p>Hasta Hope Foundation runs hands-on craft workshops &mdash; from crochet to whatever comes next &mdash; and channels what's raised and made straight into charitable causes in our community.</p>
-      <a class="btn" href="donate.html">Support Our Work</a>
-      <a class="btn outline" href="#initiatives">See Our Initiatives</a>
+      <div class="kicker">DONATE</div>
+      <h1>Give with Zelle, straight from your bank app.</h1>
+      <p>Zelle charges no processing fees, so your full gift goes to our programs: youth craft workshops, food security, healthcare support, and disaster relief.</p>
     </div>
-    <div class="swatches">
-      <div class="swatch"><img src="images/tile-materials.jpg" alt="Assorted handcraft materials: yarn, thread, buttons, and fabric"></div>
-      <div class="swatch"><img src="images/tile-hands.jpg" alt="Hands sewing fabric by hand"></div>
-      <div class="swatch"><img src="images/tile-workshop.jpg" alt="A handcraft workshop with several people at a shared table"></div>
-      <div class="swatch"><img src="images/tile-handmade.jpg" alt="Completed handmade crochet products: a heart keychain, a mushroom keychain, flower pins, and a crochet doll"></div>
-      <div class="swatch"><img src="images/tile-kids.jpg" alt="A child weaving at a workshop table"></div>
-      <div class="swatch"><img src="images/tile-community.jpg" alt="A diverse group gathered together"></div>
+    <div class="tag-card">
+      <div class="tag-label">Our Zelle tag</div>
+      <div class="zelle-tag" id="zelle-tag">hastahopefoundation</div>
+      <button class="copy-btn" type="button" id="copy-btn">Copy Zelle tag</button>
+      <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+      <p class="tag-note">Before you send, check that the recipient shows as <strong>Hasta Hope Foundation</strong>.</p>
     </div>
   </div>
 </section>
 
-<hr class="rule">
-
-<section class="quote">
+<section class="how">
   <div class="wrap">
-    <blockquote>&ldquo;Hasta&rdquo; means hand. Every initiative we run starts there &mdash; hands learning a craft, and hands giving back.
-      <cite>&mdash; Hasta Hope Foundation</cite>
-    </blockquote>
+    <h2>How to donate</h2>
+    <ol class="give-steps">
+      <li><h3>Open Zelle</h3><p>Open your bank's app, go to Zelle, and choose Send.</p></li>
+      <li><h3>Enter our tag</h3><p>Type <code>hastahopefoundation</code> as the recipient.</p></li>
+      <li><h3>Confirm the name</h3><p>Make sure it shows Hasta Hope Foundation. Zelle payments can't be reversed.</p></li>
+      <li><h3>Add a memo</h3><p>Enter your amount, and add your name and email in the memo so we can thank you. Write "Crochet For Hope" to support that initiative.</p></li>
+    </ol>
   </div>
 </section>
 
-<section class="initiatives" id="initiatives">
+<section class="fine">
   <div class="wrap">
-    <div class="eyebrow-label">OUR INITIATIVES</div>
-    <h2>One craft today, more crafts to come &mdash; each one built to teach and to give.</h2>
-    <div class="init-grid">
-      <div class="init-card">
-        <div class="init-tag">Kids-driven</div>
-        <h3>Crochet For Hope</h3>
-        <p>Our flagship initiative: youth-led crochet workshops where kids learn the craft, make items by hand, and raise funds that go directly toward food security, healthcare support, and disaster relief.</p>
-        <a href="crochet-for-hope.html">Visit Crochet For Hope &rarr;</a>
-      </div>
-      <div class="init-card ghost">
-        <h3>More crafts, coming soon</h3>
-        <p>We're growing beyond crochet into other handcrafts. Interested in starting or leading one? Get in touch.</p>
-      </div>
+    <div>
+      <h3>Need a receipt?</h3>
+      <p>Email <a href="mailto:crochetforhope4u@gmail.com?subject=Donation%20receipt">crochetforhope4u@gmail.com</a> with the date and amount of your gift, and we'll send one.</p>
+    </div>
+    <div>
+      <h3>Can't find Zelle?</h3>
+      <p>Zelle is built into most US banking apps. If yours doesn't have it, <a href="mailto:crochetforhope4u@gmail.com?subject=Other%20ways%20to%20donate">email us</a> and we'll help you give another way.</p>
+    </div>
+    <div>
+      <h3>Other ways to help</h3>
+      <p>Join a workshop, donate yarn and supplies, or buy a handmade piece. See <a href="crochet-for-hope.html">Crochet For Hope</a>.</p>
     </div>
   </div>
 </section>
-
-<section id="how">
-  <div class="wrap">
-    <div class="eyebrow-label">HOW IT WORKS</div>
-    <h2 style="font-size:2.2rem;max-width:520px;">From a first stitch to a real difference &mdash; in three steps.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Learn</h3>
-        <p>Kids and volunteers join hands-on workshops to learn a handcraft from the ground up, taught by peers and mentors.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>Create</h3>
-        <p>Participants make items by hand &mdash; blankets, goods, and more &mdash; building skill, patience, and pride along the way.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Give</h3>
-        <p>What's made and raised goes straight to causes like food security, healthcare, and disaster relief in our community.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band" id="give">
-  <div class="wrap">
-    <h2>Every dollar and every stitch reaches someone.</h2>
-    <p>Whether you volunteer, donate, or simply spread the word, you're helping a young person learn a craft and turn it into real support for people who need it.</p>
-    <a class="btn" style="background:var(--gold);color:var(--ink);" href="donate.html">Donate with Zelle</a>
-    <a class="btn outline" href="mailto:crochetforhope4u@gmail.com">Get Involved</a>
-  </div>
-</section>
+</main>
 
 <footer>
   <div class="wrap">
@@ -209,5 +207,20 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var btn = document.getElementById('copy-btn'), status = document.getElementById('copy-status');
+  var tag = document.getElementById('zelle-tag').textContent.trim();
+  function done(ok){ status.textContent = ok ? 'Copied' : 'Select the tag above to copy it'; setTimeout(function(){ status.textContent=''; }, 2500); }
+  function fallback(){
+    var t = document.createElement('textarea'); t.value = tag; t.setAttribute('readonly',''); t.style.position='absolute'; t.style.left='-9999px';
+    document.body.appendChild(t); t.select(); var ok=false; try{ ok = document.execCommand('copy'); }catch(e){} document.body.removeChild(t); done(ok);
+  }
+  btn.addEventListener('click', function(){
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(tag).then(function(){ done(true); }, fallback); }
+    else { fallback(); }
+  });
+})();
+</script>
 </body>
 </html>
