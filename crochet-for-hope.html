@@ -165,6 +165,15 @@
   }
   nav a.donate-link{background:var(--ink);color:#fff;padding:4px 14px;border-radius:999px;border-bottom:0;}
   nav a.donate-link:hover{background:var(--pill);}
+
+  /* founders photo (portrait) */
+  .split.founders .wrap{grid-template-columns:1.35fr .65fr;align-items:center;}
+  .img-portrait{aspect-ratio:461/696;background:#5d5a5b;border-radius:20px;overflow:hidden;}
+  .img-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:0;}
+  @media(max-width:860px){
+    .split.founders .wrap{grid-template-columns:1fr;}
+    .img-portrait{max-width:420px;width:100%;margin:0 auto;}
+  }
 </style>
 </head>
 <body>
@@ -211,7 +220,7 @@
   </div>
 </section>
 
-<section class="light split reverse">
+<section class="light split reverse founders">
   <div class="wrap">
     <div class="box">
       <h2>The Heart of Our Journey</h2>
@@ -219,13 +228,13 @@
       <p>Crochet For Hope was born from cherished family moments spent learning the art of crochet. Sisters Sejal and Novika Thatipamula learned these skills during the summer of 2024, inspired by their grandmother's teachings. This passion has since blossomed into a community-driven initiative.</p>
       <p>Today, we empower youth to stitch together not only beautiful creations but also impactful lives. Each program we offer fosters skills that extend beyond crochet, instilling values of service, compassion, and leadership in our community.</p>
     </div>
-    <div class="img-tall img-block"><img src="images/our-story.jpg" alt="Volunteers crocheting together by a sunlit window" style="width:100%;height:100%;object-fit:cover;border-radius:20px;"></div>
+    <div class="img-portrait img-block"><img src="images/founders-sejal-novika.jpg" alt="Sisters Sejal and Novika Thatipamula, founders of Crochet For Hope, crocheting a yellow and a red flower"></div>
   </div>
 </section>
 
 <section class="dark split">
   <div class="wrap">
-    <div class="img-tall img-block"><img src="images/impact.jpg" alt="Volunteer and child working with colorful yarn" style="width:100%;height:100%;object-fit:cover;border-radius:20px;"></div>
+    <div class="img-tall img-block"><img src="images/impact-food-bank-check.jpg" alt="Sejal and Novika presenting a $440 check for 570 meals to the Mill Creek Community Food Bank" style="width:100%;height:100%;object-fit:cover;border-radius:20px;"></div>
     <div class="box">
       <h2>Celebrating our collective impact through crochet initiatives</h2>
       <h3>Our impact speaks volumes about our mission</h3>

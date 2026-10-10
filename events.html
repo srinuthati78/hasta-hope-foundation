@@ -164,6 +164,24 @@
   }
   nav a.donate-link{background:var(--ink);color:#fff;padding:4px 14px;border-radius:999px;border-bottom:0;}
   nav a.donate-link:hover{background:var(--pill);}
+
+  /* featured upcoming event */
+  .featured-event{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:36px;background:#fff;border-radius:20px;padding:28px;max-width:1000px;align-items:start;}
+  .featured-event .flyer{display:block;border-radius:12px;overflow:hidden;box-shadow:0 1px 0 rgba(90,53,104,.08);}
+  .featured-event .flyer img{border-radius:0;width:100%;height:auto;}
+  .featured-event .flyer:focus-visible{outline:3px solid var(--pill);outline-offset:3px;}
+  .fe-body h3{font-size:1.7rem;margin:6px 0 18px;}
+  .fe-facts{list-style:none;display:grid;gap:12px;margin-bottom:20px;}
+  .fe-facts li{display:grid;grid-template-columns:90px 1fr;gap:12px;font-size:.98rem;}
+  .fe-facts strong{color:var(--ink);font-family:'Baloo 2';font-size:1rem;}
+  .fe-facts a{color:var(--ink);text-decoration:underline;}
+  .fe-note{font-size:.95rem;margin-bottom:22px;}
+  .featured-event + .empty-state{margin-top:24px;}
+  .fe-ended{display:none;font-weight:600;color:var(--ink);margin-bottom:12px;}
+  @media(max-width:860px){
+    .featured-event{grid-template-columns:1fr;padding:20px;gap:22px;}
+    .fe-facts li{grid-template-columns:70px 1fr;}
+  }
 </style>
 </head>
 <body>
@@ -213,8 +231,30 @@
       </div>
     -->
 
-    <div class="empty-state">
-      <h3>New dates coming soon</h3>
+    <article class="featured-event" id="fall-2026" data-ends="2026-10-11T16:00:00-07:00">
+      <a class="flyer" href="images/event-fall-workshop-2026.jpg" target="_blank" rel="noopener" aria-label="Open the full-size flyer">
+        <img src="images/event-fall-workshop-2026.jpg" alt="Flyer: Crochet For Hope 1st Anniversary Fall Workshop, October 11, 2026, 11 AM to 4 PM, City Hall North, Mill Creek. $25, materials provided. In partnership with the HopeCreek Mill Creek Community Food Bank.">
+      </a>
+      <div class="fe-body">
+        <span class="event-tag">1st anniversary</span>
+        <h3>Fall Workshop</h3>
+        <ul class="fe-facts">
+          <li><strong>Date</strong><span>Sunday, October 11, 2026</span></li>
+          <li><strong>Time</strong><span>11 AM &ndash; 4 PM Pacific Time</span></li>
+          <li><strong>Where</strong><span><a href="https://www.google.com/maps/search/?api=1&query=15720+Main+St%2C+Mill+Creek%2C+WA" target="_blank" rel="noopener">City Hall North<br>15720 Main St., Mill Creek, WA</a></span></li>
+          <li><strong>Cost</strong><span>$25, all materials provided</span></li>
+        </ul>
+        <p class="fe-note">In partnership with the HopeCreek Mill Creek Community Food Bank. All proceeds go to the Hope Creek Charitable Foundation.</p>
+        <p class="fe-ended" id="fe-ended">This workshop has ended. Thank you to everyone who came!</p>
+        <div class="btn-row" id="fe-actions">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfrtNeNjAnY_gmnLmzxyrtjRtvKkpsLe7_JUiXqlPLtuTOUuQ/viewform" target="_blank" rel="noopener">Register now</a>
+          <a class="btn ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Crochet+For+Hope+Fall+Workshop+%281st+Anniversary%29&amp;dates=20261011T180000Z%2F20261011T230000Z&amp;location=City+Hall+North%2C+15720+Main+St.%2C+Mill+Creek%2C+WA&amp;details=%2425%2C+all+materials+provided.+All+proceeds+go+to+the+Hope+Creek+Charitable+Foundation.+Register%3A+https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSfrtNeNjAnY_gmnLmzxyrtjRtvKkpsLe7_JUiXqlPLtuTOUuQ%2Fviewform" target="_blank" rel="noopener">Add to Google Calendar</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="empty-state" id="no-events">
+      <h3>Stay in the loop</h3>
       <p>We announce workshops and fundraisers on Instagram first. Follow along, or email us to host a workshop at your school or community group.</p>
       <div class="btn-row">
         <a class="btn" href="https://www.instagram.com/crochet.for.hope/" target="_blank" rel="noopener">Follow @crochet.for.hope</a>
@@ -229,7 +269,7 @@
     <h2>What we've done so far</h2>
     <div class="event-list">
       <article class="event">
-        <img src="images/opportunities.jpg" alt="Kids at a crochet workshop">
+        <img src="images/ws-summer-2025-5day.jpg" alt="Kids holding their projects at the Summer 2025 five-day workshop">
         <div class="event-body">
           <span class="event-tag">Youth workshops</span>
           <h3>Crochet workshops across five school districts</h3>
@@ -245,7 +285,7 @@
         </div>
       </article>
       <article class="event">
-        <img src="images/product-flowers.jpg" alt="Crochet flower pins packaged for sale">
+        <img src="images/give-food-bank-nov-2025.jpg" alt="Sejal and Novika presenting an $880 check for 1,134 meals to the Hope Creek Foundation">
         <div class="event-body">
           <span class="event-tag">Fundraising</span>
           <h3>$3,480 raised through handmade sales</h3>
@@ -267,5 +307,13 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var ev = document.getElementById('fall-2026'); if (!ev) return;
+  var end = new Date(ev.getAttribute('data-ends')).getTime(), now = Date.now();
+  if (now > end + 3 * 86400000) { ev.style.display = 'none'; }
+  else if (now > end) { document.getElementById('fe-actions').style.display = 'none'; document.getElementById('fe-ended').style.display = 'block'; }
+})();
+</script>
 </body>
 </html>
